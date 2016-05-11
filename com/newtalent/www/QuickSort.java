@@ -67,7 +67,7 @@ public class QuickSort {
 				int temp = a[i];
 				a[i] = a[j];
 				a[j] = temp;
-				
+					
 			}
 		}
 		
