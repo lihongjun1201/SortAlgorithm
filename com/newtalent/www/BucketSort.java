@@ -66,13 +66,14 @@ public class BucketSort {
 	}
 
 	public static void main(String[] args) {
-		int[] unsortedArray = { 331, 454, 230, 34, 343, 45, 59, 453455s, 345, 231,9 };
+		int[] unsortedArray = { 331, 454, 230, 34, 343, 45, 59, 453455, 345, 231,9 };
 //		int[] unsortedArray = { 5,4,3,2,23,42,53,12 };
 		baseKeySort(unsortedArray);
 		
 		//buckedSort(unsortedArray, 1);
 		for (int i = 0; i < unsortedArray.length; i++) {
 			System.out.print(unsortedArray[i] + " ");
+	
 		}
 
 	}
