@@ -45,7 +45,7 @@ public class OutSort {
 			
 			System.out.println("正在创建大文件" + filename );
 			System.out.println("请稍后...\n");
-			for (int i = 0; i < 84; i++) {
+			for (int i = 0; i < 800004; i++) {
 				output.writeInt((int) (Math.random() * 100000));
 			}
 			
@@ -306,7 +306,7 @@ public class OutSort {
 	
 
 	/**
-	 * 打印排好序的大文件 前 100个数
+	 * 打印排好序的大文件 前 50个数
 	 * @param fileName
 	 */
 	private static void displayFile(String fileName) {
