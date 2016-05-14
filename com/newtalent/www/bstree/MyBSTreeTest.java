@@ -1,5 +1,7 @@
 package com.newtalent.www.bstree;
 
+import java.util.Iterator;
+
 public class MyBSTreeTest {
 
 	public static void main(String[] args) {
@@ -12,6 +14,17 @@ public class MyBSTreeTest {
 		nameTree.insert("J");
 		nameTree.insert("P");
 		nameTree.insert("D");
+		
+		
+		//²âÊÔÖÐÐòµü´úÆ÷
+		Iterator iterator = nameTree.iterator();
+		while (iterator.hasNext()) {
+			System.out.println(  ((String)(iterator.next())).toLowerCase() );
+			
+		}
+		
+
+		
 		
 //		System.out.println( nameTree.getMax(nameTree.getRoot()) );
 //		System.out.println( nameTree.getMin(nameTree.getRoot()) );

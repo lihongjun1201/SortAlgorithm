@@ -255,7 +255,12 @@ public class BinSearchTree<E extends Comparable<E>> extends AbstractTree<E> {
 	@Override
 	public Iterator iterator() {
 		// TODO Auto-generated method stub
-		return null;
+		return InorderIterator();
+	}
+
+	private Iterator InorderIterator() {
+		// TODO Auto-generated method stub
+		return new InorderIterator();
 	}
 
 	@Override
@@ -278,23 +283,7 @@ public class BinSearchTree<E extends Comparable<E>> extends AbstractTree<E> {
 	}
 	
 	
-	/**
-	 * 静态内部类 树节点
-	 * @author AllenLee
-	 *
-	 * @param <E>
-	 */
-	public static class TreeNode<E extends Comparable<E>> {
-		
-		E element;
-		TreeNode<E> left;
-		TreeNode<E> right;
-		
-		/** 构造函数 */
-		public TreeNode(E e) {
-			element = e;
-		}
-	}
+
 	
 	/**
 	 * 内部类 ----中序遍历迭代器
@@ -304,29 +293,32 @@ public class BinSearchTree<E extends Comparable<E>> extends AbstractTree<E> {
 	 */
 	class InorderIterator implements Iterator {
 
+		//存放遍历二叉排序树获得的节点们
 		ArrayList<E> nodesArray = new ArrayList<E>();
 		
 		private int currentIndex = 0;
 		
-		//中序遍历迭代器---构造函数
+		/**中序遍历迭代器---构造函数
+		*构造中序迭代器时，调用中序遍历接口，获得二叉排序树的中序遍历集合
+		**/
 		public InorderIterator(){
-			//构造中序迭代器时，调用中序遍历接口，获得二叉排序树的中序遍历集合
-			inorderTraverse();
+			inorderTraverse(); //迭代器类自身的遍历方法
 		}
 		
+		/** 对_inorder包装一层 */
 		private void inorderTraverse() {
-			inorder(root);
+			_inorder(root);
 		}
 		
-		private void inorder(TreeNode<E> root) {
+		/** 递归中序遍历 */
+		private void _inorder(TreeNode<E> root) {
 			if (root == null) {
 				return;
 			}
-			
-			//递归中序遍历
-			inorder(root.left);
+		
+			_inorder(root.left);
 			nodesArray.add(root.element);
-			inorder(root.right);
+			_inorder(root.right);
 		}
 
 		@Override
@@ -357,6 +349,24 @@ public class BinSearchTree<E extends Comparable<E>> extends AbstractTree<E> {
 		
 	}
 		
+	
+	/**
+	 * 静态内部类 树节点
+	 * @author AllenLee
+	 *
+	 * @param <E>
+	 */
+	public static class TreeNode<E extends Comparable<E>> {
+		
+		E element;
+		TreeNode<E> left;
+		TreeNode<E> right;
+		
+		/** 构造函数 */
+		public TreeNode(E e) {
+			element = e;
+		}
+	}
 		
 		
 }
